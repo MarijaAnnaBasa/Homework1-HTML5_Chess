@@ -1,0 +1,238 @@
+/* Define all sections */
+body {
+    background: white;
+    text-align: center;
+    font-size: 24px;
+    height: 100vh;
+
+    display: grid;
+    grid-gap: 10px;
+    
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+header {
+    background: #caf0f8a6;
+    padding: 15px;
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+}
+
+header .brand {
+    background: #8ecae6;
+    grid-area: brand;
+}
+
+header nav {
+    background: #8ecae6;
+    grid-area: nav;
+}
+
+header .tools {
+    background: #8ecae6;
+    grid-area: tools;
+}
+
+
+.hero {
+    background: #94d2bd8c;
+    padding: 10px;
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+
+.hero .feature {
+    background: #0a9396;
+    grid-area: feature;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .action {
+    background: #0a9396;
+    grid-area: action;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main {
+    background: #ffccd578;
+    padding: 15px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: #ff8fa3;
+    grid-area: feature;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .listing {
+    background: #ff8fa3;
+    grid-area: listing;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background: #8ecae6;
+    padding: 15px;
+    grid-area: footer;
+}
+
+.desktop-ad {
+    grid-area: ad;
+    display: none;
+}
+
+.hero .feature {
+    display: none;
+}
+
+.sidebar {
+    background: #94d2bd8c;
+    padding: 15px;
+    grid-area: sidebar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+}
+
+.sidebar .feature {
+    background: #0a9396;
+    height: 100%;
+}
+
+
+.mobile-ad img{
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktop-ad img{
+    vertical-align: top;
+    width: 350px;
+}
+
+.mobile-ad:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.desktop-ad:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    .hero {
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing"
+    }
+
+    .sidebar {
+        display: grid;
+    }
+
+    .mobile-ad img {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+    
+
+}
